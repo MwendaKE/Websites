@@ -1,0 +1,308 @@
+/* index.css - The Magic Paint and Style Book for Our Website! */
+/* Think of this like the instruction manual for how everything should look! */
+
+/* 🎪 STEP 1: Import Google Fonts (Like ordering special handwriting styles!) */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Open+Sans:wght@400;500&display=swap');
+/* This says: "Dear Google, please send us the Poppins and Open Sans fonts!" */
+/* Like ordering special art supplies from an art store! */
+
+/* 🎨 STEP 2: Tailwind CSS Directives (The magic words that activate Tailwind!) */
+@tailwind base;        /* 🏗️ "Build the foundation/base styles first!" */
+@tailwind components;  /* 🧱 "Add all the pre-made building blocks next!" */
+@tailwind utilities;   /* 🛠️ "Add all the little helper tools last!" */
+/* These are like saying "Abracadabra!" to make Tailwind magic work! */
+
+/* 🎯 STEP 3: Custom Base Styles (Setting up our website's basic look) */
+/* @layer base means: "These styles go with the foundation/base layer" */
+@layer base {
+  /* 🧍 BODY: Style for the whole website body (like dressing the mannequin!) */
+  body {
+    @apply font-body text-gray-800;  /* "Use Open Sans font with dark gray text!" */
+    /* font-body = Open Sans (from our tailwind.config.js) */
+    /* text-gray-800 = A nice dark gray color (like charcoal!) */
+  }
+  
+  /* 🎪 HEADINGS: Style for all heading tags (h1, h2, h3, etc.) */
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display font-bold;  /* "Use Poppins font and make it bold!" */
+    /* font-display = Poppins (from our tailwind.config.js) */
+    /* font-bold = Make it extra thick and strong! */
+  }
+}
+
+/* 🛠️ STEP 4: Custom Components (Our own special building blocks!) */
+/* @layer components means: "These are our custom-made components" */
+@layer components {
+  /* 🔘 PRIMARY BUTTON: Our main action button (like a big red "GO!" button!) */
+  .btn-primary {
+    @apply bg-nova-orange text-white font-bold px-6 py-3 rounded-full hover:bg-nova-red transition-colors duration-200;
+    /* Let's break this down: */
+    /* bg-nova-orange = Orange background (our special color!) */
+    /* text-white = White text (easy to read on orange!) */
+    /* font-bold = Thick, strong text */
+    /* px-6 py-3 = Padding: 6 units left/right, 3 units top/bottom */
+    /* rounded-full = Make it completely round (like a pill!) */
+    /* hover:bg-nova-red = When mouse hovers, turn dark red! */
+    /* transition-colors = Smooth color change (not sudden jump!) */
+    /* duration-200 = Color change takes 200 milliseconds (blink of an eye!) */
+  }
+  
+  /* 🔳 SECONDARY BUTTON: Our alternative button (like a "Maybe Later" button) */
+  .btn-secondary {
+    @apply border-2 border-nova-orange text-nova-orange font-bold px-6 py-3 rounded-full hover:bg-nova-orange hover:text-white transition-colors duration-200;
+    /* border-2 border-nova-orange = Orange outline (not filled in!) */
+    /* text-nova-orange = Orange text */
+    /* hover:bg-nova-orange = When hovering, fill with orange! */
+    /* hover:text-white = When hovering, text turns white! */
+  }
+  
+  /* 🃏 CARD: Our information boxes (like trading cards or picture frames!) */
+  .card {
+    @apply bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300;
+    /* bg-white = White background (clean and fresh!) */
+    /* rounded-xl = Extra rounded corners (softer look!) */
+    /* shadow-lg = Big shadow (makes it pop off the page!) */
+    /* hover:shadow-xl = When hovering, shadow gets even bigger! */
+    /* transition-shadow = Smooth shadow animation */
+    /* duration-300 = Animation takes 300 milliseconds */
+  }
+}
+
+/* 📚 Kid-Friendly Explanations (AFTER the @layer, not inside!) */
+
+/* 🎨 PRIMARY BUTTON EXPLANATION:
+   - Orange background (bg-nova-orange)
+   - White text (text-white) 
+   - Bold font (font-bold)
+   - Padding: 6 left/right, 3 top/bottom (px-6 py-3)
+   - Round shape (rounded-full)
+   - Hover turns dark red (hover:bg-nova-red)
+   - Smooth color change (transition-colors)
+   - 200ms animation (duration-200) */
+
+/* 🎨 SECONDARY BUTTON EXPLANATION:
+   - Orange border (border-2 border-nova-orange)
+   - Orange text (text-nova-orange)
+   - Hover fills with orange (hover:bg-nova-orange)
+   - Hover text turns white (hover:text-white) */
+
+/* 🎨 CARD EXPLANATION:
+   - White background (bg-white)
+   - Rounded corners (rounded-xl)
+   - Big shadow (shadow-lg)
+   - Hover shadow bigger (hover:shadow-xl)
+   - Smooth shadow animation (transition-shadow)
+   - 300ms animation (duration-300) */
+
+/*
+
+🎪 What Kids Will Understand:
+
+Think of Building with Different Kinds of Blocks:
+
+1. 🏗️ Base Layer (@layer base)
+
+· Like: The foundation of a LEGO house
+· Contains: Basic styles that everything uses
+· Example: "All walls should be gray, all doors should be brown"
+
+2. 🧱 Components Layer (@layer components)
+
+· Like: Special pre-made LEGO pieces
+· Contains: Reusable building blocks
+· Example: "This is how all windows look", "This is how all doors look"
+
+3. 🛠️ Utilities Layer (@tailwind utilities)
+
+· Like: Single LEGO bricks you can use anywhere
+· Contains: Tiny style helpers
+· Example: "Red brick", "Blue brick", "2x4 brick"
+
+How Our Custom Components Work:
+
+🔘 Primary Button = The "Super YES!" Button
+
+```
+When you see a button with class="btn-primary":
+1. It's ORANGE (like a juicy orange!)
+2. Text is WHITE (easy to read!)
+3. ROUND shape (like a candy!)
+4. Hovers to RED (like it's getting excited!)
+5. Smooth color change (like a sunset!)
+```
+
+🔳 Secondary Button = The "Maybe Later" Button
+
+```
+When you see a button with class="btn-secondary":
+1. ORANGE outline only (like drawing with orange marker!)
+2. ORANGE text (matches the outline!)
+3. Hovers to fill with ORANGE (like coloring it in!)
+4. Text turns WHITE when filled (for contrast!)
+```
+
+🃏 Card = The Information Box
+
+```
+When you see a div with class="card":
+1. WHITE background (clean canvas!)
+2. Rounded corners (soft and friendly!)
+3. Shadow underneath (like it's floating!)
+4. Shadow grows on hover (like it's coming closer!)
+```
+
+The Magic of @apply:
+
+```css
+@apply bg-nova-orange text-white
+```
+
+This means: "Take all these Tailwind classes and apply them here!"
+
+Without @apply:
+
+```html
+<button class="bg-nova-orange text-white font-bold px-6 py-3 rounded-full">
+```
+
+With @apply:
+
+```css
+.btn-primary {
+  @apply bg-nova-orange text-white font-bold px-6 py-3 rounded-full;
+}
+```
+
+```html
+<button class="btn-primary">
+```
+
+It's like making a shortcut! 🎯
+
+Why We Have Different Layers:
+
+Base Layer First:
+
+```css
+@layer base {
+  body { @apply font-body; }
+}
+```
+
+"First, set up the basic rules that EVERYTHING follows!"
+
+Components Layer Second:
+
+```css
+@layer components {
+  .btn-primary { @apply bg-nova-orange; }
+}
+```
+
+"Then, create our special building blocks using those base rules!"
+
+Utilities Layer Last:
+
+```css
+@tailwind utilities;
+```
+
+"Finally, add all the little helper tools we might need!"
+
+Real-World Analogies:
+
+1. 🎨 Painting a Room:
+
+```
+Base Layer: "All walls should be light gray"
+Components: "The door should be white with black handle"
+Utilities: "This spot needs extra touch-up paint"
+```
+
+2. 👕 Dressing Up:
+
+```
+Base Layer: "Wear underwear and socks first"
+Components: "Put on your school uniform"
+Utilities: "Add a tie or hair clip if needed"
+```
+
+3. 🍔 Making a Burger:
+
+```
+Base Layer: "Start with bottom bun"
+Components: "Add the special sauce recipe"
+Utilities: "Extra pickle on this one only"
+```
+
+The Font Import Explained:
+
+```css
+@import url('https://fonts.googleapis.com/...');
+```
+
+This is like:
+
+1. Going to Google Fonts store 🏪
+2. Choosing Poppins and Open Sans fonts 🅰️
+3. Asking Google to deliver them 📦
+4. Using them in our website 🎨
+
+Hover Effects Explained:
+
+hover:bg-nova-red
+
+"When mouse pointer touches this, change background to nova-red!"
+
+transition-colors duration-200
+
+"Don't change instantly - fade from orange to red over 0.2 seconds!"
+
+Shadow Effects Explained:
+
+shadow-lg
+
+Size comparison:
+
+· shadow-sm = Tiny shadow (like paper on desk)
+· shadow = Normal shadow (like book on table)
+· shadow-lg = Big shadow (like box on floor)
+· shadow-xl = Huge shadow (like person standing)
+
+Why This File is So Cool:
+
+🎯 Consistency:
+
+· All btn-primary buttons look exactly the same!
+· All card divs have the same style!
+· Website looks professional and organized!
+
+⚡ Reusability:
+
+· Write once, use everywhere!
+· Change in one place, updates everywhere!
+· Like having a cookie cutter for buttons!
+
+🎨 Brand Identity:
+
+· Our website has unique look
+· Colors match our restaurant theme
+· Fonts create specific feeling
+
+How Kids Can Remember:
+
+The 3-Layer Cake:
+
+1. 🍰 Base Layer = Cake itself (foundation)
+2. 🍦 Components Layer = Frosting and decorations
+3. 🍒 Utilities Layer = Sprinkles and cherries
+
+The Superhero Team:
+
+1. 🦸 Base = Sets the rules for everyone
+2. 🦸‍♀️ Components = Creates special tools
+3. 🦸‍♂️ Utilities = Provides backup help
+
+Now kids understand that index.css is the master style rulebook that tells every part of our website how to look, move, and feel, creating a beautiful and consistent experience! 📚✨🎨
+
+*/

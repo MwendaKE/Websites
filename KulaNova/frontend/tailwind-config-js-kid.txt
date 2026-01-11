@@ -1,0 +1,222 @@
+// tailwind.config.js - The Magic Paint Box for Our Website!
+// Think of this like a giant box of crayons that tells our website what colors to use!
+
+/** @type {import('tailwindcss').Config} */  // 🎯 This tells TypeScript: "This is a Tailwind config file!"
+export default {
+  // 🎪 CONTENT: Where Tailwind should look for colors and styles we use
+  // Think of this like telling the paint robot: "Look in these folders for artwork!"
+  content: [
+    "./index.html",  // 📄 "Look in the main HTML file (the front door of our website!)"
+    "./src/**/*.{js,ts,jsx,tsx}",  // 📁 "Look in ALL files inside the 'src' folder with these extensions!"
+    // ** means "any folder inside", * means "any file", {js,ts,jsx,tsx} means "files ending with these"
+  ],
+  
+  // 🎨 THEME: Our custom colors, fonts, and styles (the fun part!)
+  // This is like mixing our own special paint colors!
+  theme: {
+    // 🎯 EXTEND: Add NEW colors and styles to Tailwind's existing collection
+    // Like adding extra crayons to an already-big crayon box!
+    extend: {
+      // 🌈 COLORS: Our custom color palette (like our restaurant's uniform!)
+      colors: {
+        'nova-orange': '#FF6B35',    // 🟠 Main orange (like a juicy orange!)
+        'nova-red': '#FF2E00',       // 🔴 Dark red (like ketchup or tomatoes!)
+        'nova-yellow': '#FFA726',    // 🟡 Bright yellow (like French fries!)
+        'nova-gray': '#37474F',      // ⚫ Dark gray (like pepper or soy sauce!)
+        'nova-light': '#FFF3E0',     // ⚪ Light cream (like mayonnaise or whipped cream!)
+      },
+      
+      // 🔤 FONT FAMILY: Our custom fonts (like choosing handwriting styles!)
+      fontFamily: {
+        'display': ['Poppins', 'sans-serif'],  // 🎪 Fancy font for big headings (like a circus banner!)
+        'body': ['Open Sans', 'sans-serif'],   // 📖 Simple font for reading text (like a storybook!)
+      }
+    },
+  },
+  
+  // 🛠️ PLUGINS: Extra tools we could add (empty for now - room for more toys!)
+  plugins: [],  // 🎁 "We could add more magic tools here, but we don't need any right now!"
+}
+
+
+/*
+
+🎪 What Kids Will Understand:
+
+Think of a Giant Box of LEGO:
+
+🧱 Default Tailwind Colors = Basic LEGO Colors
+
+· Red, blue, green, yellow (the standard colors that come in every box)
+
+🎨 Our Custom Colors = Special Limited-Edition LEGO Colors
+
+· nova-orange, nova-red, nova-yellow (our restaurant's special colors!)
+
+📁 Content Array = Where to Find LEGO Pieces
+
+· ./index.html = The instruction manual
+· ./src/**/*.{js,ts,jsx,tsx} = All the LEGO bags in the "src" room
+
+How We Use These Colors:
+
+In Our Components (Like Painting):
+
+```jsx
+<div className="bg-nova-orange text-white">
+  {/* 🟠 This div has an orange background (bg-nova-orange) */}
+  {/* ⚪ With white text (text-white) */}
+</div>
+```
+
+What Happens Behind the Scenes:
+
+```
+Component: "I want bg-nova-orange!"
+Tailwind: "Let me check my paint box... 🎨"
+Tailwind: "Found it! nova-orange is #FF6B35!"
+Browser: "Painting element with #FF6B35!" 🟠
+```
+
+The Color Code Explained:
+
+HEX Colors = Secret Color Recipes:
+
+· #FF6B35 = Recipe for our special orange!
+· FF = How much red (like ketchup)
+· 6B = How much green (like lettuce)
+· 35 = How much blue (like blueberries)
+
+RGB Version (Same Color):
+
+· #FF6B35 = rgb(255, 107, 53)
+· Red: 255 (maximum!), Green: 107 (medium), Blue: 53 (little)
+
+Font Families Explained:
+
+display: ['Poppins']
+
+"Use Poppins font for big, attention-grabbing text!"
+
+· Like: Movie posters, restaurant signs, big headlines
+· Feels: Modern, bold, fun
+
+body: ['Open Sans']
+
+"Use Open Sans font for easy-to-read text!"
+
+· Like: Storybooks, menus, paragraphs
+· Feels: Clean, simple, readable
+
+The Magic content Array:
+
+Why We Need It:
+
+Tailwind is SMART but needs to know WHERE to look for styles!
+
+Without content:
+
+```
+Tailwind: "I have all these colors and fonts..."
+Tailwind: "But I don't know which files to check for usage!"
+Tailwind: "So I won't include any styles!" 😢
+```
+
+With content:
+
+```
+Tailwind: "Check index.html and all files in src folder!"
+Tailwind: "Found bg-nova-orange in Header.jsx! ✅"
+Tailwind: "Found text-nova-gray in Shop.jsx! ✅"
+Tailwind: "I'll include these in the final website!" 🎉
+```
+
+Real-World Analogies:
+
+1. Restaurant Uniforms:
+
+```
+Owner: "Our waiters wear orange (nova-orange)!"
+Tailwind: "Got it! I'll make all waiter uniforms orange!"
+Customer: "I can spot the waiters easily!" 🟠
+```
+
+2. School Colors:
+
+```
+Principal: "Our school colors are red and gray!"
+Tailwind: "I'll make banners, signs, and uniforms red and gray!"
+Students: "Our school has a cool theme!" 🎨
+```
+
+3. Paint Store:
+
+```
+Painter: "I need these 5 special paint colors!"
+Store: "We'll mix them for you and label them with your names!"
+Painter: "Now I can say 'nova-orange' instead of '#FF6B35'!" 🖌️
+```
+
+Why This File is So Important:
+
+🚫 Without This File:
+
+· Website: Uses default Tailwind colors (blue, green, etc.)
+· Restaurant: Looks like every other website
+· Brand: No special identity
+
+✅ With This File:
+
+· Website: Uses OUR special restaurant colors
+· Restaurant: Has unique look and feel
+· Brand: Memorable and recognizable
+
+The Magic of extend:
+
+What extend Does:
+
+```javascript
+extend: {
+  colors: {
+    'nova-orange': '#FF6B35',
+  }
+}
+```
+
+"Add nova-orange to Tailwind's existing color collection, DON'T replace the other colors!"
+
+Without extend:
+
+```
+Tailwind's colors: 🔴 🟢 🔵 🟡 (only our custom colors)
+We lose: All the default colors! 😱
+```
+
+With extend:
+
+```
+Tailwind's colors: 🔴 🟢 🔵 🟡 + 🟠 🔴 🟡 ⚫ ⚪ (default + ours)
+We get: ALL colors! 🎉
+```
+
+How Kids Can Remember This:
+
+🎨 The Paint Box Analogy:
+
+1. content = Where to find painted pictures
+2. theme = Our special paint colors
+3. extend = Adding new paints without throwing away old ones
+4. colors = Our custom paint tubes
+5. fontFamily = Our handwriting styles
+
+🍕 The Restaurant Analogy:
+
+1. nova-orange = Our special pizza box color
+2. nova-red = Our spicy sauce color
+3. nova-yellow = Our cheese color
+4. nova-gray = Our pepper color
+5. nova-light = Our cream sauce color
+
+Now kids understand that tailwind.config.js is the master painter's recipe book that tells our website exactly which colors to use and where to find all the artwork! 🎨📚🌈
+
+*/

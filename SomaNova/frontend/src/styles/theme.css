@@ -1,0 +1,583 @@
+/* 
+ * SomaNova Theme CSS
+ * Color Scheme:
+ * - Navy Blue: #1e3a8a
+ * - Gold/Yellow: #fbbf24
+ * - White: #ffffff
+ * - Light Gray: #f3f4f6
+ */
+
+/* Reset & Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+        'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+        sans-serif;
+    background-color: #f3f4f6;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Color Variables */
+:root {
+    --navy-blue: #1e3a8a;
+    --gold-yellow: #fbbf24;
+    --white: #ffffff;
+    --light-gray: #f3f4f6;
+    --text-dark: #1f2937;
+    --text-light: #6b7280;
+}
+
+/* Container */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Typography */
+h1, h2, h3, h4 {
+    color: var(--navy-blue);
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 0.75rem;
+}
+
+h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+p {
+    margin-bottom: 1rem;
+    color: var(--text-dark);
+}
+
+a {
+    color: var(--navy-blue);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--gold-yellow);
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: var(--navy-blue);
+    color: var(--white);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 500;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #1d4ed8;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.btn-gold {
+    background-color: var(--gold-yellow);
+    color: #000;
+}
+
+.btn-gold:hover {
+    background-color: #f59e0b;
+    color: #000;
+}
+
+.btn-outline {
+    background-color: transparent;
+    border: 2px solid var(--navy-blue);
+    color: var(--navy-blue);
+}
+
+.btn-outline:hover {
+    background-color: var(--navy-blue);
+    color: var(--white);
+}
+
+/* Utility Classes */
+.text-center {
+    text-align: center;
+}
+
+.mt-1 { margin-top: 0.5rem; }
+.mt-2 { margin-top: 1rem; }
+.mt-3 { margin-top: 1.5rem; }
+.mt-4 { margin-top: 2rem; }
+.mt-5 { margin-top: 2.5rem; }
+
+.mb-1 { margin-bottom: 0.5rem; }
+.mb-2 { margin-bottom: 1rem; }
+.mb-3 { margin-bottom: 1.5rem; }
+.mb-4 { margin-bottom: 2rem; }
+.mb-5 { margin-bottom: 2.5rem; }
+
+.p-1 { padding: 0.5rem; }
+.p-2 { padding: 1rem; }
+.p-3 { padding: 1.5rem; }
+.p-4 { padding: 2rem; }
+.p-5 { padding: 2.5rem; }
+
+.flex {
+    display: flex;
+}
+
+.flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.flex-between {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.grid {
+    display: grid;
+}
+
+/* Card Styles */
+.card {
+    background-color: var(--white);
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+/* Loading Spinner */
+.spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid var(--light-gray);
+    border-top-color: var(--navy-blue);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Form Styles */
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--text-dark);
+    font-weight: 500;
+}
+
+.form-input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #d1d5db;
+    border-radius: 4px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: var(--navy-blue);
+    box-shadow: 0 0 0 3px rgba(30, 58, 138, 0.1);
+}
+
+.form-textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+/* Alert Messages */
+.alert {
+    padding: 1rem;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+}
+
+.alert-success {
+    background-color: #d1fae5;
+    color: #065f46;
+    border: 1px solid #a7f3d0;
+}
+
+.alert-error {
+    background-color: #fee2e2;
+    color: #991b1b;
+    border: 1px solid #fecaca;
+}
+
+.alert-info {
+    background-color: #dbeafe;
+    color: #1e40af;
+    border: 1px solid #bfdbfe;
+}
+
+/* Header Styles (already good, just keeping structure) */
+.header {
+    background-color: var(--navy-blue);
+    padding: 1.5rem 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+/* Ensure no black text on blue backgrounds */
+.blue-bg {
+    background-color: var(--navy-blue);
+    color: var(--white);
+}
+
+.blue-bg h1,
+.blue-bg h2,
+.blue-bg h3,
+.blue-bg h4,
+.blue-bg p,
+.blue-bg a:not(.btn-gold) {
+    color: var(--white);
+}
+
+.blue-bg a:not(.btn-gold):hover {
+    color: var(--gold-yellow);
+}
+
+/* Yellow text for better contrast on blue */
+.yellow-text {
+    color: var(--gold-yellow);
+}
+
+.yellow-text:hover {
+    color: var(--white);
+}
+
+/* Book Card Specific Styles */
+.book-card {
+    background-color: var(--white);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.book-card .price {
+    color: var(--navy-blue);
+    font-weight: bold;
+}
+
+.book-card .category {
+    background-color: var(--gold-yellow);
+    color: #000;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+/* Footer Styles */
+.footer {
+    background-color: var(--navy-blue);
+    color: var(--white);
+    padding: 3rem 0 1.5rem;
+}
+
+.footer a {
+    color: var(--gold-yellow);
+}
+
+.footer a:hover {
+    color: var(--white);
+}
+
+/* Hero Section with blue background */
+.hero {
+    background-color: var(--navy-blue);
+    color: var(--white);
+    padding: 4rem 0;
+}
+
+.hero h1,
+.hero h2,
+.hero h3,
+.hero p {
+    color: var(--white);
+}
+
+.hero .btn-outline {
+    border-color: var(--gold-yellow);
+    color: var(--gold-yellow);
+}
+
+.hero .btn-outline:hover {
+    background-color: var(--gold-yellow);
+    color: var(--navy-blue);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2rem;
+    }
+    
+    h2 {
+        font-size: 1.75rem;
+    }
+    
+    h3 {
+        font-size: 1.3rem;
+    }
+    
+    .container {
+        padding: 0 15px;
+    }
+    
+    .btn {
+        padding: 10px 20px;
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.75rem;
+    }
+    
+    h2 {
+        font-size: 1.5rem;
+    }
+    
+    h3 {
+        font-size: 1.2rem;
+    }
+    
+    .container {
+        padding: 0 10px;
+    }
+    
+    .btn {
+        padding: 8px 16px;
+        font-size: 0.9rem;
+    }
+}
+
+/* Page Container Styles */
+.page-container {
+    min-height: calc(100vh - 200px); /* Adjust based on header/footer height */
+    margin-bottom: 3rem; /* Space between page content and footer */
+}
+
+/* Main Content Styles */
+.main-content {
+    padding-bottom: 3rem; /* Extra padding at bottom */
+}
+
+/* Update existing body styles */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Ensure footer stays at bottom */
+.app-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.main-content {
+    flex: 1;
+}
+
+/* Cart & Wishlist Page Styles */
+.cart-page,
+.wishlist-page {
+    min-height: 60vh;
+    margin-bottom: 3rem;
+}
+
+/* Empty State Styles */
+.empty-state {
+    text-align: center;
+    padding: 4rem 2rem;
+    background-color: var(--white);
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin: 2rem 0;
+}
+
+.empty-state-icon {
+    font-size: 4rem;
+    margin-bottom: 1.5rem;
+    opacity: 0.5;
+}
+
+/* Cart & Wishlist Item Styles */
+.cart-item,
+.wishlist-item {
+    background-color: var(--white);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.cart-item-image {
+    width: 100px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.cart-item-details {
+    flex: 1;
+}
+
+.cart-item-actions {
+    display: flex;
+    gap: 1rem;
+}
+
+/* Quantity Controls */
+.quantity-controls {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.quantity-btn {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 1px solid #d1d5db;
+    background-color: var(--white);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+}
+
+.quantity-input {
+    width: 50px;
+    text-align: center;
+    padding: 0.25rem;
+    border: 1px solid #d1d5db;
+    border-radius: 4px;
+}
+
+/* Checkout Styles */
+.checkout-summary {
+    background-color: var(--white);
+    border-radius: 8px;
+    padding: 2rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 2rem;
+}
+
+.checkout-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.checkout-total {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--navy-blue);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .cart-item,
+    .wishlist-item {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .cart-item-actions {
+        justify-content: center;
+    }
+    
+    .page-container {
+        margin-bottom: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .page-container {
+        margin-bottom: 1.5rem;
+    }
+    
+    .empty-state {
+        padding: 3rem 1rem;
+    }
+}
+
+/* Add to theme.css */
+.nav-link:hover {
+    color: #ffffff !important;
+}
+
+.admin-link:hover {
+    background-color: #f59e0b !important;
+    transform: translateY(-2px) !important;
+}
+
+.sell-button:hover {
+    background-color: #f59e0b !important;
+    transform: translateY(-2px) !important;
+}
+
+.admin-toggle:hover {
+    background-color: rgba(255, 255, 255, 0.2) !important;
+    transform: scale(1.1) !important;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.spinner {
+    animation: spin 1s linear infinite;
+}

@@ -1,0 +1,129 @@
+========================================
+somanova
+========================================
+general:
+$ mkdir somanova
+
+backend:
+$ mkdir backend
+$ touch app.py
+$ touch models.py
+$ touch database.py
+$ touch requirements.txt
+$ pip install -r requirements.txt
+$ python seed_data.py
+
+
+frontend:
+$ cd somanova
+$ npm create vite@latest frontend
+$ cd frontend
+$ npm install
+$ npm install axios
+$ npm install react-router-dom
+$ npm run dev
+
+========================================
+How it works without a real user account:
+========================================
+The system uses session-based authentication for guest users:
+
+Backend Implementation:
+
+1. Session ID in Cookies: When a user visits the site, a unique session ID is generated and stored in their browser cookies
+2. User Creation: If no user exists with that session ID, a new User record is created in the database with just the session ID
+3. Guest User Model: The User model has a session_id field (no email/password required)
+
+How It Works:
+
+1. Middleware (in app.py):
+
+```python
+@app.before_request
+def before_request():
+    session_id = request.cookies.get('session_id')
+    if not session_id:
+        session_id = str(uuid.uuid4())
+        request.session_id = session_id
+
+@app.after_request
+def after_request(response):
+    if hasattr(request, 'session_id'):
+        response.set_cookie('session_id', request.session_id, max_age=30*24*60*60)
+    return response
+```
+
+2. Get or Create User:
+
+```python
+def get_or_create_user(session_id):
+    user = User.query.filter_by(session_id=session_id).first()
+    if not user:
+        user = User(session_id=session_id)
+        db.session.add(user)
+        db.session.commit()
+    return user
+```
+
+3. Add to Cart/Wishlist:
+
+· Frontend sends book ID + session cookie
+· Backend finds/create user by session ID
+· Creates CartItem or WishlistItem linked to that user
+
+Key Points:
+
+· No login required - works for all visitors
+· Persists across page refreshes (cookie lasts 30 days)
+· Separate data per browser/device (different session IDs)
+· Can upgrade to real accounts later (add email/password to existing User record)
+
+This provides seamless cart/wishlist functionality without forcing users to create accounts.
+
+========================================
+API COMMUNICATION: FRONTEND <> BACKEND
+========================================
+API Communication Flow:
+
+1. Frontend (api.js) → Backend (app.py)
+
+```javascript
+// api.js makes HTTP request
+const response = await axios.get('/api/featured', {
+    withCredentials: true  // Sends cookies
+});
+
+// Backend receives request
+@app.route('/api/featured')
+def get_featured_books():
+    session_id = request.cookies.get('session_id')  // Get session from cookie
+    # ... process request
+    return json_response
+```
+
+2. Session Management:
+
+· Cookie sent automatically (withCredentials: true)
+· Session ID persists across all API calls
+· Backend identifies user via session ID cookie
+
+3. Real-time Updates:
+
+· Frontend polls or user actions trigger API calls
+· Backend queries database fresh each request
+· JSON response contains latest data
+
+4. Example Flow:
+
+```
+User clicks "Add to Cart" 
+→ api.js POST /api/cart {book_id: 123} 
+→ Backend creates CartItem 
+→ User sees cart badge update
+→ Future GET /api/cart shows new item
+```
+
+Key: Session cookies link frontend actions to backend user records, enabling persistent cart/wishlist without login. Each API call fetches fresh data from database.
+
+
+

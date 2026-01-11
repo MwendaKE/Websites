@@ -1,0 +1,297 @@
+/* Hero Carousel */
+.hero-carousel {
+    height: 50vh;
+    min-height: 500px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px;
+    margin-bottom: var(--spacing-xl);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.carousel-track {
+    display: flex;
+    height: 100%;
+    transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    will-change: transform;
+}
+
+.carousel-slide {
+    flex: 0 0 100%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--spacing-xl);
+    text-align: center;
+}
+
+.carousel-slide::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(0, 51, 102, 0.85) 0%, rgba(1, 121, 111, 0.85) 100%);
+    z-index: 1;
+}
+
+.carousel-content {
+    position: relative;
+    z-index: 2;
+    color: white;
+    max-width: 800px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: var(--spacing-lg);
+}
+
+.carousel-content h2 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: var(--spacing-md);
+    line-height: 1.2;
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.carousel-content p {
+    font-size: 1.3rem;
+    margin-bottom: var(--spacing-lg);
+    opacity: 0.95;
+    line-height: 1.6;
+    text-align: center;
+    max-width: 600px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.carousel-icon {
+    font-size: 5rem;
+    margin-bottom: var(--spacing-lg);
+    display: block;
+    text-align: center;
+    filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+/* Slide-specific backgrounds with images */
+.carousel-slide[data-service="pharmacy"] {
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.9) 0%, rgba(118, 75, 162, 0.9) 100%), url('/images/pharmacy-bg.jpg') center/cover;
+}
+
+.carousel-slide[data-service="consultation"] {
+    background: linear-gradient(135deg, rgba(240, 147, 251, 0.9) 0%, rgba(245, 87, 108, 0.9) 100%), url('/images/consultation-bg.jpg') center/cover;
+}
+
+.carousel-slide[data-service="clinic"] {
+    background: linear-gradient(135deg, rgba(79, 172, 254, 0.9) 0%, rgba(0, 242, 254, 0.9) 100%), url('/images/clinic-bg.jpg') center/cover;
+}
+
+/* Fallback background colors if images don't load */
+.carousel-slide[data-service="pharmacy"]:not([style*="background-image"]) {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.carousel-slide[data-service="consultation"]:not([style*="background-image"]) {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+}
+
+.carousel-slide[data-service="clinic"]:not([style*="background-image"]) {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+}
+
+/* Carousel Navigation */
+.carousel-nav {
+    position: absolute;
+    bottom: var(--spacing-lg);
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: var(--spacing-sm);
+    z-index: 3;
+}
+
+.carousel-dot {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.6);
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: var(--transition);
+    position: relative;
+}
+
+.carousel-dot:hover {
+    background: rgba(255, 255, 255, 0.8);
+    transform: scale(1.1);
+}
+
+.carousel-dot.active {
+    background: var(--pure-white);
+    border-color: var(--pine-green);
+    transform: scale(1.2);
+}
+
+.carousel-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.25);
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 3;
+    transition: var(--transition);
+    backdrop-filter: blur(10px);
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.carousel-arrow:hover {
+    background: rgba(255, 255, 255, 0.4);
+    border-color: rgba(255, 255, 255, 0.8);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.carousel-arrow:active {
+    transform: translateY(-50%) scale(0.95);
+}
+
+.carousel-arrow--prev {
+    left: var(--spacing-xl);
+}
+
+.carousel-arrow--next {
+    right: var(--spacing-xl);
+}
+
+.carousel-arrow span {
+    display: block;
+    line-height: 1;
+}
+
+/* Progress Bar */
+.carousel-progress {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.3);
+    z-index: 3;
+}
+
+.carousel-progress-bar {
+    height: 100%;
+    background: var(--pine-green);
+    width: 0%;
+    transition: width 0.1s linear;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .hero-carousel {
+        height: 45vh;
+        min-height: 450px;
+    }
+    
+    .carousel-content h2 {
+        font-size: 2.5rem;
+    }
+    
+    .carousel-content p {
+        font-size: 1.2rem;
+    }
+    
+    .carousel-icon {
+        font-size: 4rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-carousel {
+        height: 55vh;
+        min-height: 400px;
+        border-radius: 15px;
+    }
+    
+    .carousel-slide {
+        padding: var(--spacing-lg);
+    }
+    
+    .carousel-content h2 {
+        font-size: 2rem;
+    }
+    
+    .carousel-content p {
+        font-size: 1.1rem;
+    }
+    
+    .carousel-arrow {
+        width: 50px;
+        height: 50px;
+        font-size: 1.25rem;
+    }
+    
+    .carousel-icon {
+        font-size: 3.5rem;
+    }
+    
+    .carousel-arrow--prev {
+        left: var(--spacing-lg);
+    }
+    
+    .carousel-arrow--next {
+        right: var(--spacing-lg);
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-carousel {
+        height: 60vh;
+        min-height: 350px;
+        border-radius: 10px;
+    }
+    
+    .carousel-content h2 {
+        font-size: 1.75rem;
+    }
+    
+    .carousel-content p {
+        font-size: 1rem;
+    }
+    
+    .carousel-arrow {
+        width: 45px;
+        height: 45px;
+        font-size: 1.1rem;
+    }
+    
+    .carousel-icon {
+        font-size: 3rem;
+    }
+    
+    .carousel-arrow--prev {
+        left: var(--spacing-md);
+    }
+    
+    .carousel-arrow--next {
+        right: var(--spacing-md);
+    }
+    
+    .carousel-dot {
+        width: 12px;
+        height: 12px;
+    }
+}

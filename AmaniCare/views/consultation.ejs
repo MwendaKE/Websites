@@ -1,0 +1,178 @@
+<%
+const data = {
+    title: 'Consultation - Book Medical Appointments with Expert Doctors',
+    activePage: 'consultation',
+    styles: `
+        <link rel="stylesheet" href="/css/consultation.css">
+    `,
+    scripts: `
+        <script src="/js/consultation.js"></script>
+    `,
+    content: `
+        <!-- Consultation Hero -->
+        <section class="consultation-hero">
+            <div class="container">
+                <div class="consultation-hero__content">
+                    <h1>Medical Consultations</h1>
+                    <p>Book appointments with qualified medical professionals for personalized healthcare advice and comprehensive medical care</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Consultation Types -->
+        <section class="consultation-types">
+            <div class="container">
+                <h2 class="section__title">Our Consultation Services</h2>
+                <p class="section__subtitle">Choose from our range of professional medical consultation services tailored to your healthcare needs</p>
+                
+                <div class="types-grid" id="typesGrid">
+                    <!-- Consultation types will be loaded here -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Medical Staff -->
+        <section class="medical-staff">
+            <div class="container">
+                <h2 class="section__title">Meet Our Medical Professionals</h2>
+                <p class="section__subtitle">Our team of certified and experienced healthcare providers dedicated to your well-being</p>
+                
+                <div class="staff-grid" id="staffGrid">
+                    <!-- Staff members will be loaded here -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Booking Section -->
+        <section class="booking-section">
+            <div class="container">
+                <div class="booking-container">
+                    <div class="booking-form">
+                        <h2>Book Your Appointment</h2>
+                        <form id="appointmentForm">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="serviceType" class="form-label">Consultation Service *</label>
+                                    <select id="serviceType" name="service_type" class="form-control" required>
+                                        <option value="">Select Consultation Service</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="preferredDoctor" class="form-label">Preferred Doctor</label>
+                                    <select id="preferredDoctor" name="preferred_doctor" class="form-control">
+                                        <option value="">Any Available Doctor</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="patientName" class="form-label">Full Name *</label>
+                                    <input type="text" id="patientName" name="patient_name" class="form-control" placeholder="Enter your full name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="phone" class="form-label">Phone Number *</label>
+                                    <input type="tel" id="phone" name="phone" class="form-control" placeholder="+255 XXX XXX XXX" required>
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="email" class="form-label">Email Address *</label>
+                                    <input type="email" id="email" name="email" class="form-control" placeholder="your.email@example.com" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="preferredDate" class="form-label">Preferred Date *</label>
+                                    <input type="date" id="preferredDate" name="preferred_date" class="form-control" required>
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="preferredTime" class="form-label">Preferred Time *</label>
+                                    <select id="preferredTime" name="preferred_time" class="form-control" required>
+                                        <option value="">Select Time Slot</option>
+                                        <option value="08:00">08:00 AM - Morning</option>
+                                        <option value="09:00">09:00 AM - Morning</option>
+                                        <option value="10:00">10:00 AM - Morning</option>
+                                        <option value="11:00">11:00 AM - Late Morning</option>
+                                        <option value="12:00">12:00 PM - Noon</option>
+                                        <option value="13:00">01:00 PM - Afternoon</option>
+                                        <option value="14:00">02:00 PM - Afternoon</option>
+                                        <option value="15:00">03:00 PM - Afternoon</option>
+                                        <option value="16:00">04:00 PM - Late Afternoon</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="urgency" class="form-label">Urgency Level</label>
+                                    <select id="urgency" name="urgency" class="form-control">
+                                        <option value="routine">Routine Check-up</option>
+                                        <option value="urgent">Urgent Concern</option>
+                                        <option value="emergency">Emergency Situation</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="notes" class="form-label">Additional Notes & Symptoms</label>
+                                <textarea id="notes" name="notes" class="form-textarea" rows="4" placeholder="Please describe your symptoms, concerns, or any specific medical issues you'd like to discuss..."></textarea>
+                            </div>
+
+                            <button type="submit" class="btn btn--primary btn--full">
+                                Book Appointment Now
+                            </button>
+                        </form>
+                    </div>
+
+                    <div class="booking-info">
+                        <h3>Why Choose Our Consultations?</h3>
+                        <div class="info-list">
+                            <div class="info-item">
+                                <div class="info-icon">👨‍⚕️</div>
+                                <div class="info-content">
+                                    <h4>Certified Professionals</h4>
+                                    <p>All our doctors are fully certified, licensed, and continuously trained in latest medical practices</p>
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-icon">⏰</div>
+                                <div class="info-content">
+                                    <h4>Flexible Scheduling</h4>
+                                    <p>Book appointments at your convenience with multiple time slots available throughout the day</p>
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-icon">💬</div>
+                                <div class="info-content">
+                                    <h4>Personalized Care</h4>
+                                    <p>Individual attention and customized treatment plans for your specific health needs</p>
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-icon">🔒</div>
+                                <div class="info-content">
+                                    <h4>Complete Confidentiality</h4>
+                                    <p>Your medical information and consultations are kept strictly private and secure</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="contact-info">
+                            <h4>Need Immediate Medical Help?</h4>
+                            <p>For urgent medical concerns that cannot wait for a scheduled appointment</p>
+                            <div class="emergency-contact">
+                                📞 +255 123 456 789
+                            </div>
+                            <p style="margin-top: var(--spacing-sm); font-size: var(--font-size-small); opacity: 0.8;">
+                                Available 24/7 for emergency situations
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    `
+};
+%>
+
+<%- include('base', data) %>

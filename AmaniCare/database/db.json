@@ -1,0 +1,98 @@
+{
+  "services": [
+    {
+      "id": 1,
+      "name": "Pharmacy",
+      "description": "Buy safe medicines and over-the-counter drugs"
+    },
+    {
+      "id": 2,
+      "name": "Consultation",
+      "description": "Get medical advice from qualified medical experts"
+    },
+    {
+      "id": 3,
+      "name": "Clinic",
+      "description": "Receive outpatient and preventive health services"
+    }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "service_id": 1,
+      "name": "Pain Relief",
+      "description": "Drugs for headaches, muscle pain, and fever"
+    },
+    {
+      "id": 2,
+      "service_id": 1,
+      "name": "Cold & Flu",
+      "description": "Medicines for flu, congestion, cough"
+    },
+    {
+      "id": 3,
+      "service_id": 1,
+      "name": "Digestive Health",
+      "description": "Stomach pain, diarrhea, indigestion"
+    },
+    {
+      "id": 4,
+      "service_id": 1,
+      "name": "Skin Care & Allergies",
+      "description": "Creams and antihistamines"
+    },
+    {
+      "id": 5,
+      "service_id": 1,
+      "name": "First Aid",
+      "description": "Basic emergency supplies"
+    },
+    {
+      "id": 6,
+      "service_id": 1,
+      "name": "Reproductive Health",
+      "description": "Pregnancy tests and contraceptives"
+    },
+    {
+      "id": 7,
+      "service_id": 2,
+      "name": "General Health",
+      "description": "Common day-to-day health issues"
+    },
+    {
+      "id": 8,
+      "service_id": 2,
+      "name": "Mental Health",
+      "description": "Stress, anxiety, sleep issues"
+    },
+    {
+      "id": 9,
+      "service_id": 2,
+      "name": "Reproductive Health",
+      "description": "Menstrual issues, pregnancy, family planning"
+    },
+    {
+      "id": 10,
+      "service_id": 3,
+      "name": "Vaccination",
+      "description": "Immunization services"
+    },
+    {
+      "id": 11,
+      "service_id": 3,
+      "name": "Lab Tests",
+      "description": "Basic diagnostic services"
+    },
+    {
+      "id": 12,
+      "service_id": 3,
+      "name": "Wound & Minor Injuries",
+      "description": "First aid and wound care management"
+    }
+  ],
+  "drugs": [],
+  "consultations": [],
+  "clinic_services": [],
+  "appointments": [],
+  "contacts": []
+}

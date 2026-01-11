@@ -1,0 +1,227 @@
+<%
+const data = {
+    title: 'Clinic Services - Outpatient & Preventive Care',
+    activePage: 'clinic',
+    styles: '<link rel="stylesheet" href="/css/clinic.css">',
+    scripts: '<script src="/js/clinic.js"></script>',
+    content: `
+        <!-- Clinic Hero -->
+        <section class="clinic-hero">
+            <div class="container">
+                <div class="clinic-hero__content">
+                    <h1>Clinic Services</h1>
+                    <p>Professional outpatient care, preventive health services, and comprehensive medical treatments delivered by experienced healthcare professionals</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Service Categories -->
+        <section class="service-categories">
+            <div class="container">
+                <h2 class="section__title">Our Clinic Services</h2>
+                <p class="section__subtitle">Comprehensive outpatient care designed to meet your healthcare needs with professionalism and compassion</p>
+                
+                <div class="categories-grid">
+                    <div class="category-card" onclick="clinicServices.filterByCategory('all')">
+                        <div class="category-icon">🏥</div>
+                        <h3>All Services</h3>
+                        <p>Complete range of outpatient and preventive healthcare services</p>
+                    </div>
+                    <div class="category-card" onclick="clinicServices.filterByCategory(10)">
+                        <div class="category-icon">💉</div>
+                        <h3>Vaccination</h3>
+                        <p>Immunization services for disease prevention and travel requirements</p>
+                    </div>
+                    <div class="category-card" onclick="clinicServices.filterByCategory(11)">
+                        <div class="category-icon">🔬</div>
+                        <h3>Lab Tests</h3>
+                        <p>Comprehensive diagnostic testing and health screening services</p>
+                    </div>
+                    <div class="category-card" onclick="clinicServices.filterByCategory(12)">
+                        <div class="category-icon">🩹</div>
+                        <h3>Wound Care</h3>
+                        <p>Professional treatment for injuries, wounds, and minor emergencies</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Grid -->
+        <section class="services-grid-section">
+            <div class="container">
+                <div class="services-header">
+                    <h3 id="currentCategory">All Clinic Services</h3>
+                    <div class="services-count">
+                        <span id="servicesCount">0</span> services available
+                    </div>
+                </div>
+                
+                <div class="services-grid" id="servicesGrid">
+                    <!-- Clinic services will be loaded here -->
+                </div>
+
+                <div class="no-services" id="noServices" style="display: none;">
+                    <h3>No services found</h3>
+                    <p>Please select a different category or check back later for new services</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Service Details Modal -->
+        <div class="modal" id="serviceModal">
+            <div class="modal-content">
+                <span class="close-modal">&times;</span>
+                <div id="serviceModalContent">
+                    <!-- Service details will be loaded here -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Features Section -->
+        <section class="clinic-features">
+            <div class="container">
+                <h2 class="section__title">Why Choose Our Clinic?</h2>
+                <p class="section__subtitle">Experience healthcare excellence with our patient-centered approach and modern medical facilities</p>
+                
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">⚡</div>
+                        <h4>Quick Service</h4>
+                        <p>Minimal waiting times with efficient appointment scheduling and prompt medical attention</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🎯</div>
+                        <h4>Expert Staff</h4>
+                        <p>Qualified medical professionals with extensive experience in outpatient care and emergency treatment</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">💎</div>
+                        <h4>Quality Care</h4>
+                        <p>High-standard medical services using modern equipment and following international protocols</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">💰</div>
+                        <h4>Affordable Prices</h4>
+                        <p>Competitive pricing with transparent costs for all clinic services and procedures</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quick Appointment Section -->
+        <section class="quick-appointment">
+            <div class="container">
+                <div class="appointment-card">
+                    <div class="appointment-content">
+                        <h2>Need Immediate Clinic Care?</h2>
+                        <p>Book your clinic appointment online for convenient scheduling or visit us during operating hours for walk-in services. Our medical team is ready to provide you with quality healthcare.</p>
+                        <div class="appointment-actions">
+                            <button class="btn btn--primary" onclick="clinicBooker.showBookingForm()">
+                                Book Clinic Visit
+                            </button>
+                            <a href="/contact" class="btn btn--outline">Contact Clinic</a>
+                        </div>
+                    </div>
+                    <div class="appointment-info">
+                        <div class="info-item">
+                            <div class="info-icon">🕒</div>
+                            <div class="info-text">
+                                <strong>Operating Hours</strong>
+                                <span>Mon-Fri: 8:00 AM - 6:00 PM</span>
+                                <span>Sat: 9:00 AM - 2:00 PM</span>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-icon">📞</div>
+                            <div class="info-text">
+                                <strong>Clinic Hotline</strong>
+                                <span>+255 123 456 789</span>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-icon">🚑</div>
+                            <div class="info-text">
+                                <strong>Emergency Care</strong>
+                                <span>24/7 Emergency Services</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Clinic Booking Form -->
+        <div class="booking-modal" id="bookingModal">
+            <div class="booking-modal-content">
+                <span class="close-booking-modal">&times;</span>
+                <h2>Book Clinic Appointment</h2>
+                <form id="clinicBookingForm">
+                    <div class="form-group">
+                        <label for="clinicService" class="form-label">Service Required *</label>
+                        <select id="clinicService" name="service_id" class="form-control" required>
+                            <option value="">Select Service</option>
+                        </select>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="clinicPatientName" class="form-label">Full Name *</label>
+                            <input type="text" id="clinicPatientName" name="patient_name" class="form-control" placeholder="Enter your full name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="clinicPhone" class="form-label">Phone Number *</label>
+                            <input type="tel" id="clinicPhone" name="phone" class="form-control" placeholder="+255 XXX XXX XXX" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="clinicEmail" class="form-label">Email Address</label>
+                            <input type="email" id="clinicEmail" name="email" class="form-control" placeholder="your.email@example.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="clinicDate" class="form-label">Preferred Date *</label>
+                            <input type="date" id="clinicDate" name="preferred_date" class="form-control" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="clinicTime" class="form-label">Preferred Time *</label>
+                            <select id="clinicTime" name="preferred_time" class="form-control" required>
+                                <option value="">Select Time Slot</option>
+                                <option value="08:00">08:00 AM - Morning</option>
+                                <option value="09:00">09:00 AM - Morning</option>
+                                <option value="10:00">10:00 AM - Morning</option>
+                                <option value="11:00">11:00 AM - Late Morning</option>
+                                <option value="12:00">12:00 PM - Noon</option>
+                                <option value="13:00">01:00 PM - Afternoon</option>
+                                <option value="14:00">02:00 PM - Afternoon</option>
+                                <option value="15:00">03:00 PM - Afternoon</option>
+                                <option value="16:00">04:00 PM - Late Afternoon</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="clinicUrgency" class="form-label">Urgency Level</label>
+                            <select id="clinicUrgency" name="urgency" class="form-control">
+                                <option value="routine">Routine Visit</option>
+                                <option value="urgent">Urgent Concern</option>
+                                <option value="emergency">Emergency Situation</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="clinicNotes" class="form-label">Additional Information & Symptoms</label>
+                        <textarea id="clinicNotes" name="notes" class="form-textarea" rows="4" placeholder="Please describe your symptoms, medical concerns, or specific requirements for your visit..."></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn--primary btn--full">Book Clinic Appointment</button>
+                </form>
+            </div>
+        </div>
+    `
+};
+%>
+
+<%- include('base', data) %>

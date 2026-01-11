@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AmaniCare - <%- typeof title !== 'undefined' ? title : 'Your Health, Our Priority' %></title>
+    <link rel="stylesheet" href="/css/base.css">
+    <%- typeof styles !== 'undefined' ? styles : '' %>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav container">
+            <div class="nav__logo">
+                <h2>AmaniCare</h2>
+                <span>Your Health, Our Priority</span>
+            </div>
+            
+            <ul class="nav__menu" id="nav-menu">
+                <li class="nav__item">
+                    <a href="/" class="nav__link <%= typeof activePage !== 'undefined' && activePage === 'home' ? 'active' : '' %>">Home</a>
+                </li>
+                <li class="nav__item">
+                    <a href="/pharmacy" class="nav__link <%= typeof activePage !== 'undefined' && activePage === 'pharmacy' ? 'active' : '' %>">Pharmacy</a>
+                </li>
+                <li class="nav__item">
+                    <a href="/consultation" class="nav__link <%= typeof activePage !== 'undefined' && activePage === 'consultation' ? 'active' : '' %>">Consultation</a>
+                </li>
+                <li class="nav__item">
+                    <a href="/clinic" class="nav__link <%= typeof activePage !== 'undefined' && activePage === 'clinic' ? 'active' : '' %>">Clinic</a>
+                </li>
+                <li class="nav__item">
+                    <a href="/contact" class="nav__link <%= typeof activePage !== 'undefined' && activePage === 'contact' ? 'active' : '' %>">Contact</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main">
+        <%- typeof content !== 'undefined' ? content : '' %>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer__container container">
+            <div class="footer__content">
+                <div class="footer__section">
+                    <h3 class="footer__title">AmaniCare Center</h3>
+                    <p class="footer__description">
+                        Your trusted healthcare partner providing professional medical services, 
+                        pharmacy solutions, and expert consultations.
+                    </p>
+                </div>
+
+                <div class="footer__section">
+                    <h4 class="footer__subtitle">Quick Links</h4>
+                    <ul class="footer__links">
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/pharmacy">Pharmacy</a></li>
+                        <li><a href="/consultation">Consultation</a></li>
+                        <li><a href="/clinic">Clinic Services</a></li>
+                        <li><a href="/contact">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer__section">
+                    <h4 class="footer__subtitle">Contact Info</h4>
+                    <div class="footer__contact">
+                        <p>📞 +255 123 456 789</p>
+                        <p>✉️ info@amanicare.co.tz</p>
+                        <p>📍 Dar es Salaam, Tanzania</p>
+                    </div>
+                </div>
+
+                <div class="footer__section">
+                    <h4 class="footer__subtitle">Opening Hours</h4>
+                    <div class="footer__hours">
+                        <p>Mon - Fri: 8:00 AM - 6:00 PM</p>
+                        <p>Saturday: 9:00 AM - 4:00 PM</p>
+                        <p>Sunday: 10:00 AM - 2:00 PM</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer__bottom">
+                <p>&copy; 2024 AmaniCare Center. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/js/main.js"></script>
+    <%- typeof scripts !== 'undefined' ? scripts : '' %>
+</body>
+</html>

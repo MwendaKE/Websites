@@ -1,0 +1,299 @@
+<%
+const data = {
+    title: 'Home - Your Health, Our Priority',
+    activePage: 'home',
+    styles: `
+        <link rel="stylesheet" href="/css/home.css">
+        <link rel="stylesheet" href="/css/carousel.css">
+    `,
+    scripts: `
+        <script src="/js/home.js"></script>
+        <script src="/js/carousel.js"></script>
+    `,
+    content: `
+        <!-- Hero Section with Carousel -->
+        <section class="hero">
+            <div class="container">
+                <!-- Carousel -->
+                <div class="hero-carousel">
+                    <div class="carousel-track">
+                        <!-- Pharmacy Slide 1 -->
+                        <div class="carousel-slide" data-service="pharmacy" aria-hidden="false">
+                            <div class="carousel-content">
+                                <div class="carousel-icon">💊</div>
+                                <h2>Quality Medicines at Your Fingertips</h2>
+                                <p>Access a wide range of prescription and over-the-counter medications with expert pharmacist guidance and professional consultation.</p>
+                                <a href="/pharmacy" class="btn btn--primary">Browse Pharmacy</a>
+                            </div>
+                        </div>
+                        
+                        <!-- Pharmacy Slide 2 -->
+                        <div class="carousel-slide" data-service="pharmacy" aria-hidden="true">
+                            <div class="carousel-content">
+                                <div class="carousel-icon">🛡️</div>
+                                <h2>Verified & Safe Medications</h2>
+                                <p>All our medicines are quality-assured, properly stored, and dispensed by licensed healthcare professionals following strict safety protocols.</p>
+                                <a href="/pharmacy" class="btn btn--primary">View Medicines</a>
+                            </div>
+                        </div>
+                        
+                        <!-- Consultation Slide 1 -->
+                        <div class="carousel-slide" data-service="consultation" aria-hidden="true">
+                            <div class="carousel-content">
+                                <div class="carousel-icon">👨‍⚕️</div>
+                                <h2>Expert Medical Consultations</h2>
+                                <p>Book appointments with qualified doctors and specialists for personalized healthcare advice, diagnosis, and comprehensive treatment plans.</p>
+                                <a href="/consultation" class="btn btn--primary">Book Consultation</a>
+                            </div>
+                        </div>
+                        
+                        <!-- Consultation Slide 2 -->
+                        <div class="carousel-slide" data-service="consultation" aria-hidden="true">
+                            <div class="carousel-content">
+                                <div class="carousel-icon">🧠</div>
+                                <h2>Mental Health Support</h2>
+                                <p>Professional counseling and mental health services provided by certified specialists for your overall well-being and peace of mind.</p>
+                                <a href="/consultation" class="btn btn--primary">Get Support</a>
+                            </div>
+                        </div>
+                        
+                        <!-- Clinic Slide 1 -->
+                        <div class="carousel-slide" data-service="clinic" aria-hidden="true">
+                            <div class="carousel-content">
+                                <div class="carousel-icon">🏥</div>
+                                <h2>Comprehensive Clinic Services</h2>
+                                <p>From routine checkups and vaccinations to lab tests and minor procedures, we provide complete outpatient care with modern facilities.</p>
+                                <a href="/clinic" class="btn btn--primary">Clinic Services</a>
+                            </div>
+                        </div>
+                        
+                        <!-- Clinic Slide 2 -->
+                        <div class="carousel-slide" data-service="clinic" aria-hidden="true">
+                            <div class="carousel-content">
+                                <div class="carousel-icon">💉</div>
+                                <h2>Vaccination & Preventive Care</h2>
+                                <p>Stay protected with our comprehensive immunization services and preventive health screenings for early detection and better health outcomes.</p>
+                                <a href="/clinic" class="btn btn--primary">Get Vaccinated</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Navigation Arrows -->
+                    <button class="carousel-arrow carousel-arrow--prev" aria-label="Previous slide">
+                        <span>‹</span>
+                    </button>
+                    <button class="carousel-arrow carousel-arrow--next" aria-label="Next slide">
+                        <span>›</span>
+                    </button>
+                    
+                    <!-- Dot Navigation -->
+                    <div class="carousel-nav">
+                        <button class="carousel-dot active" aria-label="Go to slide 1"></button>
+                        <button class="carousel-dot" aria-label="Go to slide 2"></button>
+                        <button class="carousel-dot" aria-label="Go to slide 3"></button>
+                        <button class="carousel-dot" aria-label="Go to slide 4"></button>
+                        <button class="carousel-dot" aria-label="Go to slide 5"></button>
+                        <button class="carousel-dot" aria-label="Go to slide 6"></button>
+                    </div>
+
+                    <!-- Progress Bar -->
+                    <div class="carousel-progress">
+                        <div class="carousel-progress-bar"></div>
+                    </div>
+                </div>
+
+                <!-- Quick Stats -->
+                <div class="quick-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">24/7</div>
+                        <div class="stat-label">Emergency Support</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">5000+</div>
+                        <div class="stat-label">Happy Patients</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">15+</div>
+                        <div class="stat-label">Medical Experts</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Overview -->
+        <section class="services">
+            <div class="container">
+                <h2 class="section__title">Our Healthcare Services</h2>
+                <p class="section__subtitle">Comprehensive medical care designed for your well-being with state-of-the-art facilities and expert healthcare professionals</p>
+                
+                <div class="services__grid">
+                    <!-- Pharmacy Service -->
+                    <div class="service__card">
+                        <div class="service__icon">💊</div>
+                        <h3 class="service__title">Pharmacy Services</h3>
+                        <p class="service__description">
+                            Access a complete range of quality medicines, health products, and professional pharmaceutical advice from licensed pharmacists.
+                        </p>
+                        <ul class="service__features">
+                            <li>Prescription & OTC Medicines</li>
+                            <li>Health & Wellness Products</li>
+                            <li>Expert Pharmacist Guidance</li>
+                            <li>Medicine Information & Counseling</li>
+                            <li>Prescription Management</li>
+                        </ul>
+                        <a href="/pharmacy" class="btn btn--primary service__btn">Browse</a>
+                    </div>
+
+                    <!-- Consultation Service -->
+                    <div class="service__card">
+                        <div class="service__icon">👨‍⚕️</div>
+                        <h3 class="service__title">Medical Consultation</h3>
+                        <p class="service__description">
+                            Professional medical consultations with qualified practitioners and specialists for personalized healthcare solutions and treatment plans.
+                        </p>
+                        <ul class="service__features">
+                            <li>General Health Checkups</li>
+                            <li>Mental Health Support</li>
+                            <li>Specialized Care Services</li>
+                            <li>Follow-up Consultations</li>
+                            <li>Chronic Disease Management</li>
+                        </ul>
+                        <a href="/consultation" class="btn btn--primary service__btn">Book</a>
+                    </div>
+
+                    <!-- Clinic Service -->
+                    <div class="service__card">
+                        <div class="service__icon">🏥</div>
+                        <h3 class="service__title">Clinic Services</h3>
+                        <p class="service__description">
+                            Complete outpatient services including diagnostics, treatments, preventive healthcare, and emergency medical services.
+                        </p>
+                        <ul class="service__features">
+                            <li>Vaccination Services</li>
+                            <li>Laboratory Tests</li>
+                            <li>Minor Procedures</li>
+                            <li>Emergency Care</li>
+                            <li>Health Screenings</li>
+                        </ul>
+                        <a href="/clinic" class="btn btn--primary service__btn">View</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="features">
+            <div class="container">
+                <div class="features__content">
+                    <div class="features__text">
+                        <h2 class="section__title">Why Choose AmaniCare Center?</h2>
+                        <p class="section__subtitle">Experience healthcare excellence with our patient-centered approach and commitment to quality medical services</p>
+                        <div class="features__list">
+                            <div class="feature__item">
+                                <div class="feature__icon">✅</div>
+                                <div class="feature__content">
+                                    <h4>Certified Professionals</h4>
+                                    <p>Our team includes licensed doctors, pharmacists, and nurses with extensive experience and continuous training</p>
+                                </div>
+                            </div>
+                            <div class="feature__item">
+                                <div class="feature__icon">⚡</div>
+                                <div class="feature__content">
+                                    <h4>Quick & Easy Access</h4>
+                                    <p>Simple appointment booking system and prompt service delivery ensuring minimal waiting times</p>
+                                </div>
+                            </div>
+                            <div class="feature__item">
+                                <div class="feature__icon">💰</div>
+                                <div class="feature__content">
+                                    <h4>Affordable Care</h4>
+                                    <p>Competitive pricing and transparent costs without compromising on quality of healthcare services</p>
+                                </div>
+                            </div>
+                            <div class="feature__item">
+                                <div class="feature__icon">🛡️</div>
+                                <div class="feature__content">
+                                    <h4>Quality Assured</h4>
+                                    <p>All medicines and medical procedures meet the highest international quality and safety standards</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="features__image">
+                        <div class="features__placeholder">
+                            <span>Trusted Healthcare Professionals<br>Dedicated to Your Well-being</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Enhanced Emergency Section -->
+        <section class="emergency">
+            <div class="container">
+                <div class="emergency__content">
+                    <div class="emergency__text">
+                        <h2>24/7 Emergency Medical Assistance</h2>
+                        <p>Immediate medical care when you need it most. Our emergency team is always ready to provide prompt and professional assistance with fully equipped facilities and experienced medical staff.</p>
+                        <div class="emergency__contact">
+                            <div class="emergency__phone">
+                                <strong>Emergency Hotline</strong>
+                                <span>+255 123 456 789</span>
+                            </div>
+                            <div class="emergency__hours">
+                                <strong>Available Round the Clock</strong>
+                                <span>24 Hours / 7 Days a Week</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="emergency__action">
+                        <a href="tel:+255123456789" class="btn btn--secondary emergency__btn">Call Emergency Line</a>
+                        <a href="/contact" class="btn btn--outline">Other Inquiries</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Statistics Section -->
+        <section class="stats">
+            <div class="container">
+                <h2 class="section__title">Our Impact in Numbers</h2>
+                <div class="stats__grid">
+                    <div class="stat__item">
+                        <div class="stat__number">5000+</div>
+                        <div class="stat__label">Patients Served</div>
+                    </div>
+                    <div class="stat__item">
+                        <div class="stat__number">100+</div>
+                        <div class="stat__label">Medicines Available</div>
+                    </div>
+                    <div class="stat__item">
+                        <div class="stat__number">15+</div>
+                        <div class="stat__label">Medical Experts</div>
+                    </div>
+                    <div class="stat__item">
+                        <div class="stat__number">99%</div>
+                        <div class="stat__label">Patient Satisfaction</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta">
+            <div class="container">
+                <div class="cta__content">
+                    <h2>Ready to Take Control of Your Health?</h2>
+                    <p>Join thousands of satisfied patients who trust AmaniCare Center for their healthcare needs. Experience the difference of professional, compassionate medical care.</p>
+                    <div class="cta__buttons">
+                        <a href="/consultation" class="btn btn--primary">Book Your First Consultation</a>
+                        <a href="/contact" class="btn btn--outline">Ask Questions</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    `
+};
+%>
+
+<%- include('base', data) %>

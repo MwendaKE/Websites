@@ -88,7 +88,7 @@ AmaniCare Center is a professional healthcare website designed to provide easy a
 
 - **Frontend:** HTML, CSS, JavaScript
 - **Backend:** Node.js with Express
-- **Database:** SQLite
+- **Database:** MySQL or Postgresql (NB: In this project,  an in-memory database is used)
 - **Other Tools:**
   - npm for package management
   - sqlite3 for database connection
